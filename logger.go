@@ -241,42 +241,42 @@ func init() {
 
 // 紧急
 func Emerg(format string, v ...interface{}) {
-	logmo.Emerg(format, v)
+	logmo.Emerg(format, v ...)
 }
 
 // 报警
 func Alert(format string, v ...interface{}) {
-	logmo.Alert(format, v)
+	logmo.Alert(format, v ...)
 }
 
 // 严重
 func Crit(format string, v ...interface{}) {
-	logmo.Crit(format, v)
+	logmo.Crit(format, v ...)
 }
 
 // 错误
 func Err(format string, v ...interface{}) {
-	logmo.Err(format, v)
+	logmo.Err(format, v ...)
 }
 
 // 警告
 func Warn(format string, v ...interface{}) {
-	logmo.Warn(format, v)
+	logmo.Warn(format, v ...)
 }
 
 // 提示
 func Notice(format string, v ...interface{}) {
-	logmo.Notice(format, v)
+	logmo.Notice(format, v ...))
 }
 
 // 信息
 func Info(format string, v ...interface{}) {
-	logmo.Info(format, v)
+	logmo.Info(format, v ...)
 }
 
 // 调试
 func Debug(format string, v ...interface{}) {
-	logmo.Info(format, v)
+	logmo.Debug(format, v ...)
 }
 
 func AddAdapter(name string, adapter Adapter) error {

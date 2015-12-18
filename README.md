@@ -22,36 +22,37 @@ go get -u github.com/doublemo/logmo
 ```go
 package main
 
-improt(
-    "time"
+import (
     "github.com/doublemo/logmo"
+    "time"
 )
 
 func main() {
     // logmo默认支持控制台输出
     log := logmo.New()
     // 增加文件写入
-    fw  := logmo.NewAdapterFile( 10000 )
+    fw := logmo.NewAdapterFile(10000)
     fw.Filename = "async.log"
-    fw.MaxLine  = 100
-    fw.MaxSize  = 1 << 30
-    fw.MaxDays  = 2
+    fw.MaxLine = 100
+    fw.MaxSize = 1 << 30
+    fw.MaxDays = 2
     fw.Rotation = 10
     // 增加日志等级过滤
     fw.AddHook("level", &logmo.HookLevel{logmo.ERROR})
     go fw.Run()
-    
+
     log.AddAdapter("asyncfile", fw)
     log.Emerg("specific language governing permissions")
     log.Alert("specific language governing permissions")
     log.Crit("specific language governing permissions")
-    
+
     log.Err("specific language governing permissions")
     log.Warn("specific language governing permissions")
     log.Notice("specific language governing permissions")
     log.Info("specific language governing permissions")
     log.Debug("specific language governing permissions")
-    
+
     time.Sleep(time.Second * 1)
 }
+
 ```

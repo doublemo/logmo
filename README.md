@@ -29,8 +29,8 @@ import (
 
 func main() {
     // logmo默认支持控制台输出
-    log := logmo.New()
     // 增加文件写入
+
     fw := logmo.NewAdapterFile(10000)
     fw.Filename = "async.log"
     fw.MaxLine = 100
@@ -41,16 +41,16 @@ func main() {
     fw.AddHook("level", &logmo.HookLevel{logmo.ERROR})
     go fw.Run()
 
-    log.AddAdapter("asyncfile", fw)
-    log.Emerg("specific language governing permissions")
-    log.Alert("specific language governing permissions")
-    log.Crit("specific language governing permissions")
+    logmo.AddAdapter("asyncfile", fw)
+    logmo.Emerg("specific language governing permissions")
+    logmo.Alert("specific language governing permissions")
+    logmo.Crit("specific language governing permissions")
 
-    log.Err("specific language governing permissions")
-    log.Warn("specific language governing permissions")
-    log.Notice("specific language governing permissions")
-    log.Info("specific language governing permissions")
-    log.Debug("specific language governing permissions")
+    logmo.Err("specific language governing permissions")
+    logmo.Warn("specific language governing permissions")
+    logmo.Notice("specific language governing permissions")
+    logmo.Info("specific language governing permissions")
+    logmo.Debug("specific language governing permissions")
 
     time.Sleep(time.Second * 1)
 }

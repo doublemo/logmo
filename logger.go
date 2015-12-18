@@ -278,3 +278,15 @@ func Info(format string, v ...interface{}) {
 func Debug(format string, v ...interface{}) {
 	Logmo.Info(format, v)
 }
+
+func AddAdapter(name string, adapter Adapter) error {
+	return logmo.AddAdapter(name, adapter)
+}
+
+func DeleteAdapter(name string) error {
+	return logmo.DeleteAdapter(name)
+}
+
+func GetAdapter(name string) (Adapter, error) {
+	return logmo.GetAdapter(name)
+}

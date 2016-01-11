@@ -290,3 +290,7 @@ func DeleteAdapter(name string) error {
 func GetAdapter(name string) (Adapter, error) {
 	return logmo.GetAdapter(name)
 }
+
+func SetExtraCalldepth(d int) {
+	logmo.ExtraCalldepth = d
+}
